@@ -38,7 +38,7 @@ ____
 ____
 
 # Структура файлов и папок
-
+```
 `2d_apple_carving_algorithm_pozoyan_r_o`
 - coursework.lab
 	- coursework
@@ -62,3 +62,4 @@ ____
 		```
 	- Проект компилируется и запускается
 
+```
