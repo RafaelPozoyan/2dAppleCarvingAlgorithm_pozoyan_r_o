@@ -41,9 +41,9 @@ ____
 # Структура файлов и папок
 
 2d_apple_carving_algorithm_pozoyan_r_o
-. coursework.lab
-. . coursework
-. . . coursework.hpp
+- coursework.lab
+	- coursework
+		- coursework.hpp
            . . applecarving.cpp
            . . triangulation.cpp
            . . CMakeLists.txt	
