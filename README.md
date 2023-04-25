@@ -50,7 +50,7 @@ ____
 	- coursework_test.cpp
         - CMakeLists.txt
 - CMakeLists.txt
-
+```
 # Система сборки
 
 - Проект можно добваить как subdirectory
@@ -62,4 +62,3 @@ ____
 		```
 	- Проект компилируется и запускается
 
-```
