@@ -44,21 +44,11 @@ ____
 - coursework.lab
 	- coursework
 		- coursework.hpp
-           . . applecarving.cpp
-           . . triangulation.cpp
-           . . CMakeLists.txt	
+	- applecarving.cpp
+        - triangulation.cpp
+        - CMakeLists.txt	
 . coursework.test
           . . coursework_test.cpp
           . . CMakeLists.txt
 . CMakeLists.txt
 
-- coursework.lab
-    - coursework
-- Уровень списка 1. Пункт 2.
-    - Уровень списка 2. Пункт 1.
-    - Уровень списка 2. Пункт 2.
-- Уровень списка 1. Пункт 3.
-    - Уровень списка 2. Пункт 1.
-        - Уровень списка 3. Пункт 1.
-        - Уровень списка 3. Пункт 2.
-           - Уровень списка 4. Пункт 1.
