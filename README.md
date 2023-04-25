@@ -45,7 +45,7 @@ ____
 	- coursework
 		- coursework.hpp
 	- applecarving.cpp
-        - triangulation.cpp
+	- triangulation.cpp
         - CMakeLists.txt	
 . coursework.test
           . . coursework_test.cpp
