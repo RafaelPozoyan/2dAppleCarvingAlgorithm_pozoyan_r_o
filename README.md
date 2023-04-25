@@ -7,7 +7,7 @@
 кратчайший маршрут для посещения каждого города и возвращения в
 **исходную точку**.
 
-![изображение](https://user-images.githubusercontent.com/114441417/234395580-63c766a5-365c-4b8f-b485-754c9fc9a0be.png)
+![image](https://user-images.githubusercontent.com/114441417/234412415-f68b680a-ae8c-4df9-aa9a-cf3af424305e.png)
 
 # Ход выполнения
 1. На вход подается набор городов и расстояние между ними.`coursework_test.cpp` 
