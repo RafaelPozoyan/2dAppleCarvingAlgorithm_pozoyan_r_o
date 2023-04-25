@@ -41,7 +41,7 @@ ____
 # Структура файлов и папок
 ```
 2d_apple_carving_algorithm_pozoyan_r_o
-* coursework
+* coursework/
 	* coursework.lab/
 		* coursework/
 			* coursework.hpp
