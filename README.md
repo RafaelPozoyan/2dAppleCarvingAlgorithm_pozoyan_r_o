@@ -61,8 +61,4 @@ ____
 		#include <coursework/coursework.hpp>
 		```
 	- Проект компилируется и запускается
-```javascript
-function test() {
-    console.log("notice the blank line before this function?");
-}
-```
+
