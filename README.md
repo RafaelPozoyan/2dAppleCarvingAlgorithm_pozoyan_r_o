@@ -1,6 +1,7 @@
 # 2dAppleCarvingAlgorithm_pozoyan_r_o
 # Суть поставленной задачи
 
+# Ход выполнения
 1.На вход подаются координаты городов в формате точек (x, y). (coursework_test.cpp)
 
 2.Производится триангуляция по точкам. (triangulation.cpp)
