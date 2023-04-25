@@ -51,3 +51,7 @@ ____
         - CMakeLists.txt
 - CMakeLists.txt
 
+# Система сборки
+
+- Проект можно добваить как subdirectory
+
