@@ -39,14 +39,14 @@ ____
 
 # Структура файлов и папок
 ```
-2d_apple_carving_algorithm_pozoyan_r_o
-- coursework.lab
-	- coursework
+2d_apple_carving_algorithm_pozoyan_r_o/
+- coursework.lab/
+	- coursework/
 		- coursework.hpp
 	- applecarving.cpp
 	- triangulation.cpp
 	- CMakeLists.txt	
-- coursework.test
+- coursework.test/
 	- coursework_test.cpp
         - CMakeLists.txt
 - CMakeLists.txt
