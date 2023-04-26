@@ -20,7 +20,7 @@ ____
 
 ![image](https://user-images.githubusercontent.com/114441417/234550286-f38d0e93-39c2-426d-b264-aab14819671a.png)
 
-*Можно создать отдельный cpp файл для выполнения данной функции  ``coursework/coursework.lab/hamiltoncycle.cpp``
+*Можно создать отдельный cpp файл для выполнения данной функции  ``coursework/coursework.lab/hamiltoncycle.cpp`` или включить его в ``coursework/coursework.lab/applecarving.cpp``.
 ____
 
 3. Производится триангуляция по точкам.`triangulation.cpp`
