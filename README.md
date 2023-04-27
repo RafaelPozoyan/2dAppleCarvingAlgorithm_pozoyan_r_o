@@ -58,7 +58,8 @@ ____
 		* triangulation.cpp
 		* CMakeLists.txt	
 	* coursework.test/
-		* coursework_test.cpp
+		* coursework_carving_test.cpp
+		* coursework_delauney_test.cpp
 		* CMakeLists.txt
 	* CMakeLists.txt
 ```
