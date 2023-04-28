@@ -27,15 +27,18 @@ ____
 *Можно создать отдельный cpp файл для выполнения данной функции  ``coursework/coursework.lab/hamiltoncycle.cpp`` или включить его в ``coursework/coursework.lab/applecarving.cpp``.
 ____
 
-3. Производится триангуляция по точкам.`triangulation.cpp`
+3. Производится триангуляция Делоне по точкам.`triangulation.cpp`
 
 	* N-2 – количество треугольников;
 	* N-3 – количество диагоналей, где N – количество точек (городов)
 
 
+![image](https://user-images.githubusercontent.com/114441417/235087383-d3b16c29-f0b7-427d-823b-c4c1effdae80.png)
+
+
 ____
 
-4. Вырезаются треугольники при помощи алгоритма обрезания яблока.`applecarving.cpp`
+4. Вырезаются треугольники при помощи алгоритма вырезания яблока.`applecarving.cpp`
 
 ![изображение](https://user-images.githubusercontent.com/114441417/234394583-3c641136-4d47-4482-bf03-452b2b0e2d31.png)
 
