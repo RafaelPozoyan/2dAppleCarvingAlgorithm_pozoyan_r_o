@@ -32,8 +32,7 @@ ____
 	* N-2 – количество треугольников;
 	* N-3 – количество диагоналей, где N – количество точек (городов)
 
-
-![image](https://user-images.githubusercontent.com/114441417/235088009-11d468b5-5e3a-4e8a-85ff-f0819aad796c.png)
+![image](https://user-images.githubusercontent.com/114441417/235088195-26ce45de-0e0e-4a26-94e1-2c031b190224.png)
 
 ____
 
