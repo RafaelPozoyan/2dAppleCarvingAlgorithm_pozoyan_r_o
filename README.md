@@ -70,7 +70,6 @@ ____
 		* coursework/
 			* coursework.hpp
 		* applecarving.cpp
-		* triangulation.cpp
 		* CMakeLists.txt	
 	* coursework.test/
 		* coursework_carving_test.cpp
