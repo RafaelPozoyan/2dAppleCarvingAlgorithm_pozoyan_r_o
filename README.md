@@ -34,8 +34,8 @@ ____
 
 ![image](https://user-images.githubusercontent.com/114441417/235088195-26ce45de-0e0e-4a26-94e1-2c031b190224.png)
 
-```Для триангуляции планируется использовать стороннюю библиотеку:
-https://github.com/pkositsyn/delaunay-triangulation-algorithm```
+```Для триангуляции планируется использовать стороннюю библиотеку:```
+*https://github.com/pkositsyn/delaunay-triangulation-algorithm
 
 ____
 
