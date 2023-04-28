@@ -33,8 +33,7 @@ ____
 	* N-3 – количество диагоналей, где N – количество точек (городов)
 
 
-![image](https://user-images.githubusercontent.com/114441417/235087383-d3b16c29-f0b7-427d-823b-c4c1effdae80.png)
-
+![image](https://user-images.githubusercontent.com/114441417/235088009-11d468b5-5e3a-4e8a-85ff-f0819aad796c.png)
 
 ____
 
