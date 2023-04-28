@@ -40,7 +40,7 @@ ____
 
 *https://github.com/pkositsyn/delaunay-triangulation-algorithm
 
-Производится визуализация при помощи библиотеки ``Open CV``.
+<ins>Производится визуализация при помощи библиотеки ``Open CV``.</ins>
 
 ____
 
