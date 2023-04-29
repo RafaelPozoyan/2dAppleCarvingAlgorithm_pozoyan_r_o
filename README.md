@@ -48,19 +48,4 @@ ____
 
 	* Salesman по окончании тура оказался в той же точке, что и в начале.
 
-____
 
-# Структура файлов и папок
-```
-2d_apple_carving_algorithm_pozoyan_r_o
-* coursework/
-	* coursework.lab/
-		* coursework/
-			* coursework.hpp
-		* applecarving.cpp
-		* CMakeLists.txt	
-	* coursework.test/
-		* coursework_carving_test.cpp
-		* CMakeLists.txt
-	* CMakeLists.txt
-```
