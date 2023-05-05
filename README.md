@@ -7,7 +7,7 @@
 кратчайший маршрут для посещения каждого города и возвращения в
 **исходную точку**.
 
-https://en.wikipedia.org/wiki/Travelling_salesman_problem
+*https://en.wikipedia.org/wiki/Travelling_salesman_problem
 
 Задача коммивояжера применяется в логистике и навигаторах, так как она, собственно, и нацелена на вычисление наиболее рационального пути. А самым быстрым на данный момент является алгоритм **apple carving**.
 
@@ -40,7 +40,7 @@ ____
 
 ![изображение](https://user-images.githubusercontent.com/114441417/234394583-3c641136-4d47-4482-bf03-452b2b0e2d31.png)
 
-https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
+*https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
 
 Производится визуализация при помощи библиотеки ``OpenCV``.
 
