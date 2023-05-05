@@ -30,7 +30,7 @@ ____
 
 ```Для триангуляции планируется использовать стороннюю библиотеку:```
 
-*https://github.com/pkositsyn/delaunay-triangulation-algorithm
+*hhttps://www.geom.at/products/fade2d/
 
 Производится визуализация при помощи библиотеки ``OpenCV``.
 
