@@ -40,6 +40,7 @@ ____
 
 ![изображение](https://user-images.githubusercontent.com/114441417/234394583-3c641136-4d47-4482-bf03-452b2b0e2d31.png)
 
+Подробное описание данного алгоритма смотреть здесь:
 *https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
 
 Производится визуализация при помощи библиотеки ``OpenCV``.
@@ -51,5 +52,10 @@ ____
 	* Все города посещены только один раз;
 
 	* Salesman по окончании тура оказался в той же точке, что и в начале.
+
+___
+
+Реализация самого ***Apple carving algorithm*** и визуализация через ***OpenCV*** будут являться непосредственно частями библиотеки.
+Входные данный будут подаваться в приложении. (Координаты точек)
 
 
