@@ -18,7 +18,9 @@
 
 # Литература
 Задача Коммивояджера - https://en.wikipedia.org/wiki/Travelling_salesman_problem
+
 Библиотека для осуществления триангуляции - https://www.geom.at/products/fade2d/
+
 Описание и объяснения алгоритма ***apple carving***
 
 ___
