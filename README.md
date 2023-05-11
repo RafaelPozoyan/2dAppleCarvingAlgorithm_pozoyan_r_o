@@ -17,11 +17,11 @@
 Задача коммивояжера применяется в логистике и навигаторах, так как она, собственно, и нацелена на вычисление наиболее рационального пути. А самым быстрым на данный момент является алгоритм **Apple carving**, его мы и реализуем в данной библиотеке.
 
 # Литература
-Задача Коммивояджера - https://en.wikipedia.org/wiki/Travelling_salesman_problem
+* Задача Коммивояджера - https://en.wikipedia.org/wiki/Travelling_salesman_problem
 
-Библиотека для осуществления триангуляции - https://www.geom.at/products/fade2d/
+* Библиотека для осуществления триангуляции - https://www.geom.at/products/fade2d/
 
-Описание и объяснение алгоритма ***apple carving*** - https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
+* Описание и объяснение алгоритма ***apple carving*** - https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
 
 ___
 
