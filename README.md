@@ -21,7 +21,7 @@
 
 Библиотека для осуществления триангуляции - https://www.geom.at/products/fade2d/
 
-Описание и объяснения алгоритма ***apple carving***
+Описание и объяснение алгоритма ***apple carving*** - https://www.researchgate.net/publication/340401264_Apple_Carving_Algorithm_to_Approximate_Traveling_Salesman_Problem_from_Compact_Triangulation_of_Planar_Point_Sets
 
 ___
 
