@@ -1,0 +1,5 @@
+/home/rafael/edu/apple_carving/build/CMakeFiles/edit_cache.dir
+/home/rafael/edu/apple_carving/build/CMakeFiles/rebuild_cache.dir
+/home/rafael/edu/apple_carving/build/apple_carving/CMakeFiles/apple_carving.dir
+/home/rafael/edu/apple_carving/build/apple_carving/CMakeFiles/edit_cache.dir
+/home/rafael/edu/apple_carving/build/apple_carving/CMakeFiles/rebuild_cache.dir
