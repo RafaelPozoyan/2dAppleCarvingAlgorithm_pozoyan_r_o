@@ -191,33 +191,39 @@
 //    return 0;
 //}
 
-
 int main() {
-    // Создаем изображение и набор точек
-    cv::Mat image(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
-    std::vector<cv::Point2f> points = { {100, 100}, {400, 100}, {250, 400}, {50, 250}, {450, 250} };
+    // Generate 50000 random points
+    std::vector<cv::Point2f> points;
+    cv::RNG rng;
+    for (int i = 0; i < 50000; i++) {
+        points.push_back(cv::Point2f(rng.uniform(0.f, 1920.f), rng.uniform(0.f, 1080.f)));
+    }
 
-    // Создаем объект класса Subdiv2D и добавляем точки
-    cv::Subdiv2D subdiv(cv::Rect(0, 0, image.cols, image.rows));
+    // Perform Delaunay triangulation
+    cv::Subdiv2D subdiv(cv::Rect(0, 0, 1920, 1080));
     for (const auto& p : points) {
         subdiv.insert(p);
     }
 
-    // Получаем список треугольников и рисуем их на изображении
+    // Draw Delaunay triangles and points
+    cv::Mat img(1080, 1920, CV_8UC3, cv::Scalar(255, 255, 255));
     std::vector<cv::Vec6f> triangles;
     subdiv.getTriangleList(triangles);
     for (const auto& t : triangles) {
-        cv::line(image, cv::Point(t[0], t[1]), cv::Point(t[2], t[3]), cv::Scalar(0, 0, 0), 1, cv::LINE_AA);
-        cv::line(image, cv::Point(t[0], t[1]), cv::Point(t[4], t[5]), cv::Scalar(0, 0, 0), 1, cv::LINE_AA);
-        cv::line(image, cv::Point(t[2], t[3]), cv::Point(t[4], t[5]), cv::Scalar(0, 0, 0), 1, cv::LINE_AA);
+        cv::line(img, cv::Point(t[0], t[1]), cv::Point(t[2], t[3]), cv::Scalar(0, 0, 0), 1);
+        cv::line(img, cv::Point(t[2], t[3]), cv::Point(t[4], t[5]), cv::Scalar(0, 0, 0), 1);
+        cv::line(img, cv::Point(t[4], t[5]), cv::Point(t[0], t[1]), cv::Scalar(0, 0, 0), 1);
+    }
+    for (const auto& p : points) {
+        cv::circle(img, p, 0.5, cv::Scalar(0, 0, 255), -1);
     }
 
-    // Отображаем изображение и ждем нажатия клавиши
-    cv::imshow("Triangulation", image);
+    // Display image
+    cv::imshow("Delaunay Triangulation", img);
     cv::waitKey(0);
+
     return 0;
 }
-
 //1-lenght
 //2-high
 
