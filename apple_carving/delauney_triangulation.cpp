@@ -190,27 +190,27 @@
 
 
 
-
-
-///////////////////////////////////////////////////////рандом
-int main() {
+int main(){
+/////////////////////////////////////////////////////////СЂР°РЅРґРѕРј
 
     ///////////////////////////////////////////////////////////
 
-    int point_del = 10000; //для удаления прямых
-    auto x = 1000; // размер окна
-    auto y = 1000; // размер окна
-    int num = 100; // количество точек
-    int point_size = 300 / num;
+    int point_del = 10000; //РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РїСЂСЏРјС‹С…
+    auto x = 1000; // СЂР°Р·РјРµСЂ РѕРєРЅР°
+    auto y = 1000; // СЂР°Р·РјРµСЂ РѕРєРЅР°
+    int num = 100; // РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє
+    int point_size = 3;
 
     ///////////////////////////////////////////////////////////
 
-    // Generate 50000 random points
-    std::vector<cv::Point2f> points; // point2f - тип для точек в 2д
+    // Generate num random points
+    std::vector<cv::Point2f> points; // point2f - С‚РёРї РґР»СЏ С‚РѕС‡РµРє РІ 2Рґ
     cv::RNG rng; // 
     for (int i = 0; i < num; i++) {
-        points.push_back(cv::Point2f(rng.uniform(0, x+50), rng.uniform(0, y+25))); // в каком диапозоне подбираются точки
+        points.push_back(cv::Point2f(rng.uniform(0, x+50), rng.uniform(0, y+25))); // РІ РєР°РєРѕРј РґРёР°РїРѕР·РѕРЅРµ РїРѕРґР±РёСЂР°СЋС‚СЃСЏ С‚РѕС‡РєРё
     }
+
+
 
     // Perform Delaunay triangulation
     cv::Subdiv2D subdiv(cv::Rect(0, 0, point_del, point_del));
@@ -218,10 +218,15 @@ int main() {
         subdiv.insert(p);
     }
 
+
+
     // Draw Delaunay triangles
     cv::Mat img(y + 100, x + 100, CV_8UC3, cv::Scalar(0, 0, 0));
     std::vector<cv::Vec6f> triangles;
     subdiv.getTriangleList(triangles);
+    std::vector<int> list; // РјР°СЃСЃРёРІ РґР»СЏ LaTex
+
+
 
     for (std::vector<cv::Vec6f>::iterator it = triangles.begin(); it != triangles.end(); it++) {
         cv::Vec6f t = *it;
@@ -233,9 +238,20 @@ int main() {
             }
         }
         if (cnt == 6) {
-            std::cout << "Triangle: (" << t[0] << ", " << t[1] << "), (" << t[2] << ", " << t[3] << "), (" << t[4] << ", " << t[5] << ")" << std::endl;
+            /*std::cout << "Triangle: (" << t[0] << ", " << t[1] << "), (" << t[2] << ", " << t[3] << "), (" << t[4] << ", " << t[5] << ")" << std::endl;*/
+            for (int l = 0; l < 6; l++) {
+                list.push_back(t[l]);
+            }
         }
     }
+
+
+
+    for (int i = 0; i < list.size(); i++) {
+        std::cout << list[i] << std::endl;
+    }
+
+
 
     for (const auto& t : triangles) {
         int arr[] = { point_del*3, -point_del*3 };
@@ -253,23 +269,78 @@ int main() {
             for (const auto& p : points) {
                 cv::circle(img, p, point_size, cv::Scalar(0, 0, 255), -1);
             }
+            cv::imshow("Delaunay Triangulation", img);
+            cv::waitKey(150);
         }
     }
 
     // Display image
-    cv::imshow("Delaunay Triangulation", img);
-    cv::waitKey(0);
-
-    return 0;
+    //cv::imshow("Delaunay Triangulation", img);
+    /*cv::waitKey(0);*/
 }
-
-
-
-
-//////////////////////////////////////////////////////по точкам
+//
+//#include <opencv2/core.hpp>
+//#include <opencv2/imgproc.hpp>
+//#include <opencv2/highgui.hpp>
+//#include <opencv2/imgcodecs.hpp>
+//#include <opencv2/objdetect.hpp>
+//#include <opencv2/features2d.hpp>
+//#include <opencv2/calib3d.hpp>
+//#include <iostream>
+//#include <vector>
+//
+//using namespace cv;
+//using namespace std;
+//
 //int main()
 //{
-//    // Создание набора точек
+//    // Р—Р°РіСЂСѓР·РєР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+//    Mat img = imread("C:/Users/pozoy/Pictures/photo_2023-05-24_15-30-48.jpg");
+//
+//    // РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ СЃРµСЂС‹Р№ С†РІРµС‚
+//    Mat gray;
+//    cvtColor(img, gray, COLOR_BGR2GRAY);
+//
+//    // РЎРѕР·РґР°РЅРёРµ РІРµРєС‚РѕСЂР° С‚РѕС‡РµРє
+//    vector<Point2f> points;
+//    for (int y = 0; y < img.rows; y += 10)
+//    {
+//        for (int x = 0; x < img.cols; x += 10)
+//        {
+//            points.push_back(Point2f(x, y));
+//        }
+//    }
+//
+//    // Р’С‹РїРѕР»РЅРµРЅРёРµ Р°Р»РіРѕСЂРёС‚РјР° Р”РµР»РѕРЅРµ РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё
+//    vector<Vec6f> triangles;
+//    Subdiv2D subdiv(Rect(0, 0, img.cols, img.rows));
+//    subdiv.insert(points);
+//    subdiv.getTriangleList(triangles);
+//
+//    // РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°Р¶РґРѕРіРѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРё
+//    for (int i = 0; i < triangles.size(); i++)
+//    {
+//        vector<Point> triangle;
+//        for (int j = 0; j < 3; j++)
+//        {
+//            Point2f pt = Point2f(triangles[i][j * 2], triangles[i][j * 2 + 1]);
+//            triangle.push_back(pt);
+//        }
+//        polylines(img, triangle, true, Scalar(0, 0, 255), 1);
+//        imshow("Triangulation", img);
+//        waitKey(100);
+//    }
+//
+//    // РћР¶РёРґР°РЅРёРµ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё
+//    waitKey(0);
+//
+//    return 0;
+//}
+
+//////////////////////////////////////////////////////РїРѕ С‚РѕС‡РєР°Рј
+//int main()
+//{
+//    // РЎРѕР·РґР°РЅРёРµ РЅР°Р±РѕСЂР° С‚РѕС‡РµРє
 //    std::vector<cv::Point2f> points;
 //    points.push_back(cv::Point2f(100, 100));
 //    points.push_back(cv::Point2f(300, 100));
@@ -278,18 +349,18 @@ int main() {
 //    points.push_back(cv::Point2f(250, 350));
 //    points.push_back(cv::Point2f(200, 200));
 //
-//    // Создание объекта Subdiv2D и вставка точек
+//    // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° Subdiv2D Рё РІСЃС‚Р°РІРєР° С‚РѕС‡РµРє
 //    cv::Subdiv2D subdiv(cv::Rect(0, 0, 400, 400));
 //    for (std::vector<cv::Point2f>::iterator it = points.begin(); it != points.end(); it++)
 //    {
 //        subdiv.insert(*it);
 //    }
 //
-//    // Получение списка ребер и треугольников
+//    // РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° СЂРµР±РµСЂ Рё С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ
 //    std::vector<cv::Vec6f> triangleList;
 //    subdiv.getTriangleList(triangleList);
 //
-//    // Отрисовка треугольников
+//    // РћС‚СЂРёСЃРѕРІРєР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ
 //    cv::Mat img = cv::Mat::zeros(400, 400, CV_8UC3);
 //    for (size_t i = 0; i < triangleList.size(); i++)
 //    {
@@ -302,13 +373,9 @@ int main() {
 //        cv::line(img, pt3, pt1, cv::Scalar(0, 255, 0), 1);
 //    }
 //
-//    // Отображение изображения
+//    // РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 //    cv::imshow("Delaunay Triangulation", img);
 //    cv::waitKey(0);
 //
 //    return 0;
 //}
-
-
-
-
