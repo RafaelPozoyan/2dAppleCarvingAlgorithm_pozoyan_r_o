@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top = 20mm}
+\geometry{bottom = 25mm}
+\geometry{left = 20mm}
+\geometry{right = 25mm}
+\title{Visualisation of the triangulation.}
+\begin{document}
+\maketitle
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+]
+\addplot table [col sep=comma] {points.csv};
+\end{axis}
+\end{tikzpicture}
+\item By triangulating using the OpenCV library, we get the coordinates of each triangle and visualize them, creating a LaTex file.
+\end{document}
