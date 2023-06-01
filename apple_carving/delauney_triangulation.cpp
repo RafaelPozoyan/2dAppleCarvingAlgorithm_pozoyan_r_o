@@ -3,26 +3,21 @@
 
 
 int main(){
-/////////////////////////////////////////////////////////рандом
-
-    ///////////////////////////////////////////////////////////
-
+    
     int point_del = 10000; //для удаления прямых
     auto x = 1000; // размер окна
     auto y = 1000; // размер окна
     int num = 100; // количество точек
     int point_size = 1;
 
-    ///////////////////////////////////////////////////////////
 
-     //Generate num random points
+
+
     std::vector<int> points_one_len; // point2f - тип для точек в 2д
-
 
     std::string str;
     //в тестах приведены числа в диапазоне от 100 до 1000
- //   std::ifstream file("C:/Users/pozoy/Desktop/TestFiles/test_3(100).txt"); // 100 чисел
-    std::ifstream file("D:/apple_carving_pozoyan_r_o-master/apple_carving_pozoyan_r_o-master/apple_carving/test/test_2(500).txt");  // 500 чисел
+    std::ifstream file("D:/apple_carving_pozoyan_r_o-master/apple_carving_pozoyan_r_o-master/apple_carving/test/test_3(100).txt"); 
 
     if (!file.is_open()) {
         std::cout << "The file can't be opened!\n";
@@ -43,13 +38,13 @@ int main(){
         points.push_back(new_point);
     }
 
-    //for (int t = 0; t < points.size(); t++) {
-    //    std::cout << points[t];
+    //for (int t = 0; t < points.size(); t++) { // вывод точек в формате x|y
+    //    std::cout << points[t] << std::endl;
     //}
 
 
 
-     ////Perform Delaunay triangulation
+    //Perform Delaunay triangulation
     cv::Subdiv2D subdiv(cv::Rect(0, 0, point_del, point_del));
     for (const auto& p : points) {
         subdiv.insert(p);
@@ -57,7 +52,7 @@ int main(){
 
 
 
-     ////Draw Delaunay triangles
+    //Draw Delaunay triangles
     cv::Mat img(y + 100, x + 100, CV_8UC3, cv::Scalar(0, 0, 0));
     std::vector<cv::Vec6f> triangles;
     subdiv.getTriangleList(triangles);
@@ -82,16 +77,94 @@ int main(){
         }
     }
 
+    for (int l = 0; l < list.size(); l+=5) {
+        std::cout << list[l] << std::endl;
+        std::cout << list[l+1] << std::endl;
+        std::cout << list[l+2] << std::endl;
+        std::cout << list[l+3] << std::endl;
+        std::cout << list[l+4] << std::endl;
+        std::cout << list[l+5] << std::endl;
+    }
+    
+    
+    
+    const std::string filename = "points.csv"; // запись координат треугольника в файл point.csv
+    std::ofstream outputFile(filename);
+
+    if (outputFile.is_open()) {
+        for (int i = 0; i < points_one_len.size(); i+= 2) {
+            outputFile << points_one_len[i] << "," << points_one_len[i+1] << std::endl;
+        }
+
+        outputFile.close();
+        std::cout << "Data saved to points.cvs successfully" << std::endl;
+    }
+    else {
+        std::cout << "Unable to open file: " << filename << std::endl;
+    }
 
 
-    //for (int i = 0; i < list.size(); i++) {
-    //    std::cout << list[i] << std::endl;
+
+    std::ofstream fout; // Создание файла, запись кода LaTex и визуализация
+    fout.open("visualisation.tex", std::ofstream::out | std::ofstream::trunc);
+
+    fout << R"(\documentclass[a4paper]{article})" << std::endl;
+    fout << R"(\usepackage{pgfplots})" << std::endl;
+    fout << R"(\usepackage{tikz})" << std::endl;
+    fout << R"(\usepackage{tkz-euclide})" << std::endl;
+    fout << R"(\usepackage[english, russian]{babel})" << std::endl;
+    fout << R"(\usepackage[T2A]{fontenc})" << std::endl;
+    fout << R"(\usepackage[utf8]{inputenc})" << std::endl;
+
+    fout << R"(\usepackage{geometry})" << std::endl;
+    fout << R"(\geometry{top = 20mm})" << std::endl;
+    fout << R"(\geometry{bottom = 25mm})" << std::endl;
+    fout << R"(\geometry{left = 20mm})" << std::endl;
+    fout << R"(\geometry{right = 25mm})" << std::endl;
+
+    fout << R"(\title{Visualisation of the triangulation.})" << std::endl;
+
+    fout << R"(\begin{document})" << std::endl;
+    fout << R"(\maketitle)" << std::endl;
+    
+    fout << R"(\begin{tikzpicture})" << std::endl;
+    fout << R"(\begin{axis}[)" << std::endl;
+    fout << R"(xlabel={$x$},)" << std::endl;
+    fout << R"(ylabel={$y$},)" << std::endl;
+    fout << R"(])" << std::endl;
+    fout << R"(\addplot table [col sep=comma] {points.csv};)" << std::endl;
+    fout << R"(\end{axis})" << std::endl;
+    fout << R"(\end{tikzpicture})" << std::endl;
+    fout << R"(\item By triangulating using the OpenCV library, we get the coordinates of each triangle and visualize them, creating a LaTex file.)" << std::endl;
+    fout << R"(\end{document})" << std::endl;
+
+    //std::ofstream latexFile("latex.tex");
+
+    //if (latexFile.is_open()) {
+    //    latexFile << "\documentclass{article}" << std::endl;
+    //    latexFile << "\usepackage{pgfplots}" << std::endl;
+    //    latexFile << "" << std::endl;
+    //    latexFile << "\title{Visualization of the Bowyer-Watson triangulation algorithm.}";
+    //    latexFile << "\begin{document}" << std::endl;
+    //    latexFile << "\begin{tikzpicture}" << std::endl;
+    //    latexFile << "\begin{axis}[" << std::endl;
+    //    latexFile << "xlabel={$x$}," << std::endl;
+    //    latexFile << "ylabel={$y$}," << std::endl;
+    //    latexFile << "]" << std::endl;
+    //    latexFile << "" << std::endl;
+    //    latexFile << "\addplot table [col sep=comma] {points.csv};" << std::endl;
+    //    latexFile << "" << std::endl;
+    //    latexFile << "\end{axis}" << std::endl;
+    //    latexFile << "\end{tikzpicture}" << std::endl;
+    //    latexFile << "\end{document}" << std::endl;
     //}
+
+    std::system("pdflatex visualisation.tex");
 
 
 
     for (const auto& t : triangles) {
-        int arr[] = { point_del*3, -point_del*3 };
+        int arr[] = { point_del * 3, -point_del * 3 };
         int cnt = 0;
         for (int i = 0; i < 6; i++) {
             if (std::count(std::begin(arr), std::end(arr), t[i]) == 0) {
@@ -107,122 +180,15 @@ int main(){
                 cv::circle(img, p, point_size, cv::Scalar(0, 0, 255), -1);
             }
             cv::imshow("Delaunay Triangulation", img);
-            if (num > 100) {
-                cv::waitKey(25);
-            }
-            else {
-                cv::waitKey(75);
-            }
+            //if (num > 100) {
+                cv::waitKey(1);
+            //}
+            //else {
+            //    cv::waitKey(2); // заменить на 70
+            //}
         }
     }
-
-
-
-    // Display image
-    //cv::imshow("Delaunay Triangulation", img);
-    /*cv::waitKey(0);*/
 }
 
 
 
-//
-//#include <opencv2/core.hpp>
-//#include <opencv2/imgproc.hpp>
-//#include <opencv2/highgui.hpp>
-//#include <opencv2/imgcodecs.hpp>
-//#include <opencv2/objdetect.hpp>
-//#include <opencv2/features2d.hpp>
-//#include <opencv2/calib3d.hpp>
-//#include <iostream>
-//#include <vector>
-//
-//using namespace cv;
-//using namespace std;
-//
-//int main()
-//{
-//    // Загрузка изображения
-//    Mat img = imread("C:/Users/pozoy/Pictures/photo_2023-05-24_15-30-48.jpg");
-//
-//    // Преобразование изображения в серый цвет
-//    Mat gray;
-//    cvtColor(img, gray, COLOR_BGR2GRAY);
-//
-//    // Создание вектора точек
-//    vector<Point2f> points;
-//    for (int y = 0; y < img.rows; y += 10)
-//    {
-//        for (int x = 0; x < img.cols; x += 10)
-//        {
-//            points.push_back(Point2f(x, y));
-//        }
-//    }
-//
-//    // Выполнение алгоритма Делоне для триангуляции
-//    vector<Vec6f> triangles;
-//    Subdiv2D subdiv(Rect(0, 0, img.cols, img.rows));
-//    subdiv.insert(points);
-//    subdiv.getTriangleList(triangles);
-//
-//    // Отображение каждого треугольника на изображении
-//    for (int i = 0; i < triangles.size(); i++)
-//    {
-//        vector<Point> triangle;
-//        for (int j = 0; j < 3; j++)
-//        {
-//            Point2f pt = Point2f(triangles[i][j * 2], triangles[i][j * 2 + 1]);
-//            triangle.push_back(pt);
-//        }
-//        polylines(img, triangle, true, Scalar(0, 0, 255), 1);
-//        imshow("Triangulation", img);
-//        waitKey(100);
-//    }
-//
-//    // Ожидание нажатия клавиши
-//    waitKey(0);
-//
-//    return 0;
-//}
-
-//////////////////////////////////////////////////////по точкам
-//int main()
-//{
-//    // Создание набора точек
-//    std::vector<cv::Point2f> points;
-//    points.push_back(cv::Point2f(100, 100));
-//    points.push_back(cv::Point2f(300, 100));
-//    points.push_back(cv::Point2f(100, 300));
-//    points.push_back(cv::Point2f(300, 300));
-//    points.push_back(cv::Point2f(250, 350));
-//    points.push_back(cv::Point2f(200, 200));
-//
-//    // Создание объекта Subdiv2D и вставка точек
-//    cv::Subdiv2D subdiv(cv::Rect(0, 0, 400, 400));
-//    for (std::vector<cv::Point2f>::iterator it = points.begin(); it != points.end(); it++)
-//    {
-//        subdiv.insert(*it);
-//    }
-//
-//    // Получение списка ребер и треугольников
-//    std::vector<cv::Vec6f> triangleList;
-//    subdiv.getTriangleList(triangleList);
-//
-//    // Отрисовка треугольников
-//    cv::Mat img = cv::Mat::zeros(400, 400, CV_8UC3);
-//    for (size_t i = 0; i < triangleList.size(); i++)
-//    {
-//        cv::Vec6f t = triangleList[i];
-//        cv::Point2f pt1(t[0], t[1]);
-//        cv::Point2f pt2(t[2], t[3]);
-//        cv::Point2f pt3(t[4], t[5]);
-//        cv::line(img, pt1, pt2, cv::Scalar(0, 255, 0), 1);
-//        cv::line(img, pt2, pt3, cv::Scalar(0, 255, 0), 1);
-//        cv::line(img, pt3, pt1, cv::Scalar(0, 255, 0), 1);
-//    }
-//
-//    // Отображение изображения
-//    cv::imshow("Delaunay Triangulation", img);
-//    cv::waitKey(0);
-//
-//    return 0;
-//}
